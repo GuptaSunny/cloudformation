@@ -1,0 +1,30 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Parameters": {
+		"AccessControlList": {
+			"Type": "String",
+			"Default": "AuthenticatedRead",
+			"AllowedValues": ["AuthenticatedRead ", "AwsExecRead", "BucketOwnerRead", "BucketOwnerFullControl", "LogDeliveryWrite", "PublicRead"]
+		}
+	},
+	"Resources": {
+		"S3Bucket": {
+			"Type": "AWS::S3::Bucket",
+			"Properties": {
+				"AccessControl": {
+					"Ref": "AccessControlList"
+				}
+			}
+		}
+	},
+	"Outputs": {
+		"BucketARN": {
+			"Value": {
+				"Fn::GetAtt": [
+					"S3Bucket",
+					"Arn"
+				]
+			}
+		}
+	}
+}
