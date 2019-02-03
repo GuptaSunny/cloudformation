@@ -1,5 +1,4 @@
-# cloudformation
-# Project Title
+# Cloudformation
 
 Sample AWS Cloudformation template to create AWS resources
 
